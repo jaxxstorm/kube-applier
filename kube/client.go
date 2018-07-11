@@ -50,7 +50,7 @@ func (c *Client) Configure() error {
 	defer f.Close()
 
 	c.kubeconfigFilePath = f.Name()
-	log.Printf("Using kubeConfig file:", c.kubeconfigFilePath)
+	log.Printf("Using kubeConfig file: %s", c.kubeconfigFilePath)
 
 	scd, err := ioutil.TempDir("", "kubectl-schema-cache-dir")
 	if err != nil {
