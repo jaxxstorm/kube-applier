@@ -135,7 +135,7 @@ func isCompatible(clientMajor, clientMinor, serverMajor, serverMinor string) err
 // Apply attempts to "kubectl apply" the file located at path.
 // It returns the full apply command and its output.
 func (c *Client) Apply(path string) (cmd, output string, err error) {
-	args := []string{"kubectl", "apply", "--schema-cache-dir", c.schemaCacheDir, "-f", path}
+	args := []string{"kubectl", "apply", c.schemaCacheDir, "-f", path}
 	if c.Server != "" {
 		args = append(args, fmt.Sprintf("--kubeconfig=%s", c.kubeconfigFilePath))
 	}
